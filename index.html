@@ -4,7 +4,7 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<title>Lucky Demo - Virtual Betting Game</title>
+<title>Lucky</title>
 
 <style>
 *{
@@ -15,92 +15,87 @@
 
 body{
   font-family:Arial,sans-serif;
-  background:#10131a;
-  color:white;
+  background:#0e1117;
+  color:#fff;
   min-height:100vh;
-  padding:20px;
+  padding:18px;
 }
 
 .container{
-  max-width:500px;
+  max-width:520px;
   margin:auto;
 }
 
 .header{
   text-align:center;
-  margin-bottom:20px;
+  margin-bottom:18px;
 }
 
 .header h1{
-  font-size:30px;
-  margin-bottom:8px;
+  font-size:28px;
+  margin-bottom:7px;
 }
 
 .header p{
-  color:#9da5b4;
+  color:#a7afbd;
 }
 
 .balance{
-  background:#1b202b;
-  border:1px solid #303746;
+  background:#1a202b;
+  border:1px solid #303846;
   border-radius:15px;
   padding:20px;
   text-align:center;
-  margin-bottom:20px;
+  margin-bottom:18px;
 }
 
 .balance span{
   display:block;
-  color:#9da5b4;
-  margin-bottom:8px;
+  color:#9da6b5;
+  margin-bottom:7px;
 }
 
 .balance strong{
-  font-size:30px;
+  font-size:31px;
 }
 
-.game-card{
-  background:#1b202b;
-  border:1px solid #303746;
+.card{
+  background:#1a202b;
+  border:1px solid #303846;
   border-radius:15px;
-  padding:20px;
+  padding:18px;
+  margin-bottom:18px;
 }
 
-.game-card h2{
-  text-align:center;
-  margin-bottom:20px;
+.card h2{
+  font-size:20px;
+  margin-bottom:16px;
 }
 
-.bet-label{
-  display:block;
-  margin-bottom:8px;
-  color:#cbd1dc;
-}
-
-input{
+input,select{
   width:100%;
-  padding:14px;
+  padding:13px;
   border-radius:10px;
-  border:1px solid #3a4252;
-  background:#11151d;
+  border:1px solid #3b4454;
+  background:#11151c;
   color:white;
   font-size:16px;
-  margin-bottom:18px;
+  margin-bottom:13px;
 }
 
 .choice{
   display:flex;
   gap:10px;
-  margin-bottom:18px;
+  margin-bottom:15px;
 }
 
 .choice button{
   flex:1;
-  padding:15px;
-  border:none;
+  padding:14px;
+  border:0;
   border-radius:10px;
   color:white;
-  font-size:17px;
+  font-size:16px;
   font-weight:bold;
   cursor:pointer;
 }
@@ -117,66 +112,141 @@ input{
   outline:3px solid white;
 }
 
-.play{
+.btn{
   width:100%;
-  padding:15px;
+  padding:14px;
   border:0;
   border-radius:10px;
-  background:#f5b700;
-  color:#111;
-  font-size:18px;
+  font-size:16px;
   font-weight:bold;
   cursor:pointer;
+  margin-top:5px;
 }
 
-.play:disabled{
-  opacity:.5;
-  cursor:not-allowed;
+.play{
+  background:#f5b700;
+  color:#111;
+}
+
+.deposit{
+  background:#2575e6;
+  color:white;
+}
+
+.withdraw{
+  background:#7d4bd4;
+  color:white;
+}
+
+.secondary{
+  background:#303847;
+  color:white;
 }
 
 .result{
-  margin-top:20px;
-  padding:15px;
+  margin-top:16px;
+  padding:14px;
   border-radius:10px;
-  background:#11151d;
+  background:#11151c;
   text-align:center;
+  line-height:1.6;
   min-height:50px;
-}
-
-.history{
-  margin-top:20px;
-  background:#1b202b;
-  border:1px solid #303746;
-  border-radius:15px;
-  padding:20px;
-}
-
-.history h3{
-  margin-bottom:15px;
 }
 
 .history-item{
   display:flex;
   justify-content:space-between;
-  padding:10px 0;
-  border-bottom:1px solid #303746;
-  font-size:14px;
+  gap:10px;
+  padding:11px 0;
+  border-bottom:1px solid #303846;
+  font-size:13px;
 }
 
 .win{
-  color:#20d88a;
+  color:#21dc8c;
 }
 
 .lose{
-  color:#ff5d67;
+  color:#ff626c;
 }
 
-.note{
-  margin-top:20px;
-  text-align:center;
-  color:#858d9c;
+.pending{
+  color:#ffd45c;
+}
+
+.awareness{
+  background:#171d27;
+  border:1px solid #455064;
+  border-radius:15px;
+  padding:18px;
+  margin-bottom:18px;
+}
+
+.awareness h2{
+  margin-bottom:12px;
+}
+
+.awareness p{
+  color:#c1c8d3;
+  line-height:1.6;
+  font-size:14px;
+  margin-bottom:10px;
+}
+
+.awareness ol{
+  padding-left:20px;
+  color:#c1c8d3;
+  line-height:1.8;
+  font-size:14px;
+}
+
+.small{
+  color:#8993a3;
   font-size:12px;
   line-height:1.5;
+  margin-top:10px;
+}
+
+.hidden{
+  display:none;
+}
+
+.method{
+  display:grid;
+  grid-template-columns:1fr 1fr 1fr;
+  gap:8px;
+  margin-bottom:13px;
+}
+
+.method button{
+  padding:12px 5px;
+  border:1px solid #414b5d;
+  border-radius:9px;
+  background:#11151c;
+  color:white;
+  cursor:pointer;
+}
+
+.method button.active{
+  border-color:#f5b700;
+  background:#2b2515;
+}
+
+.status-box{
+  background:#11151c;
+  padding:14px;
+  border-radius:10px;
+  margin-top:12px;
+  line-height:1.6;
+  font-size:14px;
+}
+
+.footer{
+  text-align:center;
+  color:#727c8c;
+  font-size:11px;
+  line-height:1.6;
+  padding:10px;
 }
 </style>
 </head>
@@ -187,28 +257,37 @@ input{
 
   <div class="header">
     <h1>🎮 Lucky Demo</h1>
-    <p>Virtual Coins Learning Game</p>
+    <p>Scam Awareness Simulator</p>
   </div>
+
+  <div class="demo-warning">
+    ⚠️ <b>REAL MONEY</b><br>
+    Bank, Easypaisa and JazzCash screens below are real money.
+    payment is actually sent or received.
+  </div>
+
+  <!-- BALANCE -->
 
   <div class="balance">
     <span>Virtual Balance</span>
-    <strong>🪙 <span id="balance">1000</span></strong>
+    <strong>🪙 <span id="balance">10000</span></strong>
   </div>
 
-  <div class="game-card">
+
+  <!-- GAME -->
+
+  <div class="card">
 
     <h2>🔴 Red or 🟢 Green?</h2>
 
-    <label class="bet-label">
-      Virtual Coins to Bet
-    </label>
+    <label>Virtual Coins to Bet</label>
 
     <input
       type="number"
       id="betAmount"
-      placeholder="Enter coins"
       min="1"
       value="50"
+      placeholder="Enter virtual coins"
     >
 
     <div class="choice">
@@ -232,7 +311,7 @@ input{
     </div>
 
     <button
-      class="play"
+      class="btn play"
       id="playBtn"
       onclick="playGame()"
     >
@@ -245,74 +324,226 @@ input{
 
   </div>
 
-  <div class="history">
 
-    <h3>📜 Game History</h3>
+  <!-- ADD MONEY -->
 
-    <div id="historyList">
-      <p style="color:#858d9c">
-        No games played yet.
+  <div class="card">
+
+    <h2>💳 Add Money — jazzcash</h2>
+
+    <p class="small">
+      This is payment options.
+      actual payment will be processed.
+    </p>
+
+    <br>
+
+    <label>Amount</label>
+
+    <input
+      type="number"
+      id="depositAmount"
+      min="1"
+      value="500"
+      placeholder="Enter amount"
+    >
+
+    <label>Payment Method</label>
+
+    <div class="method">
+
+      <button
+        id="bankMethod"
+        onclick="selectMethod('Bank Transfer')"
+      >
+        🏦 Bank
+      </button>
+
+      <button
+        id="easypaisaMethod"
+        onclick="selectMethod('Easypaisa')"
+      >
+        📱 Easypaisa
+      </button>
+
+      <button
+        id="jazzcashMethod"
+        onclick="selectMethod('JazzCash')"
+      >
+        📱 JazzCash
+      </button>
+
+    </div>
+
+    <button
+      class="btn deposit"
+      onclick="Deposit()"
+    >
+      ➕Add Money
+    </button>
+
+    <div
+      class="status-box hidden"
+      id="depositStatus"
+    ></div>
+
+  </div>
+
+
+  <!-- WITHDRAW -->
+
+  <div class="card">
+
+    <h2>💸 Withdraw — Simulation</h2>
+
+    <p class="small">
+      Withdrawal is real.Bank, Easypaisa or JazzCash transfer
+      actually takes place.
+    </p>
+
+    <br>
+
+    <label>Withdrawal Amount</label>
+
+    <input
+      type="number"
+      id="withdrawAmount"
+      min="1"
+      value="1000"
+      placeholder="Enter virtual coins"
+    >
+
+    <label>Withdrawal Method</label>
+
+    <select id="withdrawMethod">
+      <option>Bank Transfer</option>
+      <option>Easypaisa</option>
+      <option>JazzCash</option>
+    </select>
+
+    <button
+      class="btn withdraw"
+      onclick="Withdraw()"
+    >
+      💸 Withdrawal
+    </button>
+
+    <div
+      class="status-box hidden"
+      id="withdrawStatus"
+    ></div>
+
+  </div>
+
+
+  <!-- TRANSACTION HISTORY -->
+
+  <div class="card">
+
+    <h2>📜 Transaction History</h2>
+
+    <div id="transactionList">
+
+      <p class="small">
+        No transactions yet.
       </p>
+
     </div>
 
   </div>
 
-  <div class="note">
-    This is a learning/demo game using virtual coins only.
-    No real-money betting, deposits or withdrawals.
-  </div>
 
-</div>
+  <!-- GAME HISTORY -->
+
+  <div class="card">
+
+    <h2>🎲 Game History</h2>
+
+    <div id="historyList">
+
+      <p class="small">
+        No games played yet.
+      </p>
+
+    </div>
+
+  </div>
 
 <script>
 
 let balance = 10000;
+
 let selectedChoice = "";
 
-const balanceEl = document.getElementById("balance");
-const resultEl = document.getElementById("result");
-const historyList = document.getElementById("historyList");
+let selectedMethod = "";
+
+const balanceEl =
+  document.getElementById("balance");
+
+const resultEl =
+  document.getElementById("result");
+
+const historyList =
+  document.getElementById("historyList");
+
+const transactionList =
+  document.getElementById("transactionList");
+
 
 function updateBalance(){
 
-  balanceEl.textContent = balance;
+  balanceEl.textContent =
+    balance.toLocaleString();
 
 }
+
+
+/* =========================
+   GAME
+========================= */
 
 function selectChoice(choice){
 
   selectedChoice = choice;
 
-  document.getElementById("redBtn")
+  document
+    .getElementById("redBtn")
     .classList.remove("selected");
 
-  document.getElementById("greenBtn")
+  document
+    .getElementById("greenBtn")
     .classList.remove("selected");
 
   if(choice === "Red"){
 
-    document.getElementById("redBtn")
+    document
+      .getElementById("redBtn")
       .classList.add("selected");
 
   }else{
 
-    document.getElementById("greenBtn")
+    document
+      .getElementById("greenBtn")
       .classList.add("selected");
 
   }
 
   resultEl.textContent =
-    "You selected " + choice + ". Now play the round.";
+    "You selected " +
+    choice +
+    ". Now play the demo round.";
 
 }
 
+
 function playGame(){
 
-  const betInput =
-    document.getElementById("betAmount");
-
   const bet =
-    Number(betInput.value);
+    Number(
+      document
+        .getElementById("betAmount")
+        .value
+    );
 
   if(!selectedChoice){
 
@@ -325,7 +556,7 @@ function playGame(){
   if(!bet || bet <= 0){
 
     resultEl.textContent =
-      "⚠️ Enter a valid coin amount.";
+      "⚠️ Enter a valid virtual coin amount.";
 
     return;
   }
@@ -333,30 +564,30 @@ function playGame(){
   if(bet > balance){
 
     resultEl.textContent =
-      "⚠️ You don't have enough virtual coins.";
+      "⚠️ Not enough virtual coins.";
 
     return;
   }
 
-  // Random result
-  const randomNumber =
-    Math.random();
-
   const winningChoice =
-    randomNumber < 0.5 ? "Red" : "Green";
+    Math.random() < 0.5
+      ? "Red"
+      : "Green";
 
   const won =
     selectedChoice === winningChoice;
 
   if(won){
 
-    // Demo reward: 1x profit
     balance += bet;
 
     resultEl.innerHTML =
       "🎉 <b>You Won!</b><br>" +
-      "Result: " + winningChoice +
-      "<br>+" + bet + " virtual coins";
+      "Result: " +
+      winningChoice +
+      "<br>+" +
+      bet +
+      " virtual coins";
 
   }else{
 
@@ -364,42 +595,216 @@ function playGame(){
 
     resultEl.innerHTML =
       "😔 <b>You Lost!</b><br>" +
-      "Result: " + winningChoice +
-      "<br>-" + bet + " virtual coins";
+      "Result: " +
+      winningChoice +
+      "<br>-" +
+      bet +
+      " virtual coins";
 
   }
 
   updateBalance();
 
-  addHistory(
+  addGameHistory(
     selectedChoice,
     winningChoice,
     bet,
     won
   );
 
-  if(balance <= 0){
+}
 
-    resultEl.innerHTML +=
-      "<br><br>🪙 Virtual balance finished. Refresh the page to restart.";
 
-    document.getElementById("playBtn")
-      .disabled = true;
+/* =========================
+   PAYMENT METHOD
+========================= */
+
+function selectMethod(method){
+
+  selectedMethod = method;
+
+  document
+    .getElementById("bankMethod")
+    .classList.remove("active");
+
+  document
+    .getElementById("easypaisaMethod")
+    .classList.remove("active");
+
+  document
+    .getElementById("jazzcashMethod")
+    .classList.remove("active");
+
+  if(method === "Bank Transfer"){
+
+    document
+      .getElementById("bankMethod")
+      .classList.add("active");
+
+  }
+
+  if(method === "Easypaisa"){
+
+    document
+      .getElementById("easypaisaMethod")
+      .classList.add("active");
+
+  }
+
+  if(method === "JazzCash"){
+
+    document
+      .getElementById("jazzcashMethod")
+      .classList.add("active");
 
   }
 
 }
 
-function addHistory(
+
+/* =========================
+   DEPOSIT
+========================= */
+
+function simulateDeposit(){
+
+  const amount =
+    Number(
+      document
+        .getElementById("depositAmount")
+        .value
+    );
+
+  const status =
+    document.getElementById("depositStatus");
+
+  status.classList.remove("hidden");
+
+  if(!amount || amount <= 0){
+
+    status.innerHTML =
+      "⚠️ Enter a valid amount.";
+
+    return;
+  }
+
+  if(!selectedMethod){
+
+    status.innerHTML =
+      "⚠️ Select Bank Transfer, Easypaisa or JazzCash.";
+
+    return;
+  }
+
+  status.innerHTML =
+    "⏳ <b>SIMULATION</b><br>" +
+    "Payment request created using " +
+    selectedMethod +
+    ".<br><br>" +
+    "payment was sent.";
+
+  addTransaction(
+    "Deposit",
+    amount,
+    selectedMethod,
+    "SIMULATED"
+  );
+
+  setTimeout(function(){
+
+    balance += amount;
+
+    updateBalance();
+
+    status.innerHTML =
+      "✅ <b>Deposit Successful</b><br>" +
+      "+" +
+      amount.toLocaleString() +
+      " money added.<br><br>" +
+      "⚠️money was transferred.";
+
+  },1200);
+
+}
+
+
+/* =========================
+   WITHDRAWAL
+========================= */
+
+function simulateWithdraw(){
+
+  const amount =
+    Number(
+      document
+        .getElementById("withdrawAmount")
+        .value
+    );
+
+  const method =
+    document
+      .getElementById("withdrawMethod")
+      .value;
+
+  const status =
+    document.getElementById("withdrawStatus");
+
+  status.classList.remove("hidden");
+
+  if(!amount || amount <= 0){
+
+    status.innerHTML =
+      "⚠️ Enter a valid amount.";
+
+    return;
+  }
+
+  if(amount > balance){
+
+    status.innerHTML =
+      "⚠️ Insufficient virtual balance.";
+
+    return;
+  }
+
+  balance -= amount;
+
+  updateBalance();
+
+  status.innerHTML =
+    "⏳ <b>Withdrawal Pending</b><br>" +
+    amount.toLocaleString() +
+    " virtual coins requested through " +
+    method +
+    ".<br><br>" +
+    "money will be transferred.";
+
+  addTransaction(
+    "Withdrawal",
+    amount,
+    method,
+    "PENDING"
+  );
+
+}
+
+
+/* =========================
+   GAME HISTORY
+========================= */
+
+function addGameHistory(
   choice,
   result,
   bet,
   won
 ){
 
-  if(historyList.innerHTML.includes(
-    "No games played yet"
-  )){
+  if(
+    historyList.innerHTML.includes(
+      "No games played yet"
+    )
+  ){
 
     historyList.innerHTML = "";
 
@@ -428,9 +833,63 @@ function addHistory(
 
 }
 
+
+/* =========================
+   TRANSACTION HISTORY
+========================= */
+
+function addTransaction(
+  type,
+  amount,
+  method,
+  status
+){
+
+  if(
+    transactionList.innerHTML.includes(
+      "No transactions yet"
+    )
+  ){
+
+    transactionList.innerHTML = "";
+
+  }
+
+  const item =
+    document.createElement("div");
+
+  item.className =
+    "history-item";
+
+  const color =
+    status === "SIMULATED"
+      ? "win"
+      : "pending";
+
+  item.innerHTML = `
+
+    <span>
+      <b>${type}</b><br>
+      ${method}<br>
+      <small>Virtual transaction</small>
+    </span>
+
+    <strong class="${color}">
+      ${amount.toLocaleString()}
+      <br>
+      ${status}
+    </strong>
+
+  `;
+
+  transactionList.prepend(item);
+
+}
+
+
 updateBalance();
 
 </script>
 
 </body>
-  </html>
+</html>
